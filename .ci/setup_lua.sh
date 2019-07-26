@@ -120,7 +120,9 @@ else
 fi
 
 make build && make install
-./luarocks config
+if [ "${LUAROCKS#3.}" != "${LUAROCKS}" ]; then
+  ./luarocks config
+fi
 
 ln -s "$LR_HOME_DIR/bin/luarocks" "$HOME/.lua/luarocks"
 
